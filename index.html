@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAX Site Analyzer</title>
+  <!-- Embedded CSS for styling -->
+  <style>
+    /* General layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Input and button styling */
+    .input-container {
+      margin: 20px;
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 8px 12px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    /* Card and overview styling */
+    .overview, .card-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px 0;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 10px;
+      flex: 1 1 calc(25% - 20px);
+    }
+    /* Responsive design */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="input-container">
+    <label for="url-input">HAX Site URL:</label>  
+    <input type="text" id="url-input" placeholder="Enter HAX site URL">
+    <button id="analyze-button">Analyze</button>
+  </div>
+
+  <div class="overview" id="overview">
+    <p>Enter a HAX site URL and click "Analyze" to view site details and statistics here.</p>
+  </div>
+  
+
+  <div class="card-container" id="card-container">
+    <!-- Cards will be dynamically added here -->
+  </div>
+
+  <script type= "module" src="main.js"></script>
+  <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/simple-icon/simple-icon.js"></script>
+
+</body>
+</html>
