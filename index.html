@@ -6,68 +6,75 @@
   <title>HAX Site Analyzer</title>
   <!-- Embedded CSS for styling -->
   <style>
-    /* General layout */
+    /* General layout for page */
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0;/* Removes default body margin */
+      padding: 0; /* Removes default body padding */
+      display: flex; /* Enables flexbox layout */
+      flex-direction: column; /* Stacks elements vertically */
+      align-items: center; /* Centers content horizontally */
     }
     /* Input and button styling */
     .input-container {
-      margin: 20px;
+      margin: 20px; /* Adds space around the input container */
     }
     input[type="text"] {
-      padding: 8px;
-      font-size: 1rem;
+      padding: 8px; /* Adds padding inside the input box */
+      font-size: 1rem; /* Sets a readable font size for the input */
     }
     button {
-      padding: 8px 12px;
-      font-size: 1rem;
-      cursor: pointer;
+      padding: 8px 12px; /* Adds padding for button size */
+      font-size: 1rem; /* Sets font size for button text */
+      cursor: pointer; /* Changes cursor to pointer on hover */
     }
     /* Card and overview styling */
     .overview, .card-container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 20px 0;
+      width: 90%; /* Sets a width for responsiveness */
+      max-width: 1200px; /* Limits width on larger screens */
+      height: auto; /* Allows height to adjust based on content */
+      margin: 20px 0; /* Adds vertical spacing */
     }
     .card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 16px;
-      margin: 10px;
-      flex: 1 1 calc(25% - 20px);
+      border: 1px solid #ddd; /* Adds a light border around each card */
+      border-radius: 8px; /* Rounds the corners of each card */
+      padding: 16px; /* Adds padding inside each card */
+      height: auto; /* Allows card height to adjust based on content */
+      margin: 10px; /* Adds spacing between cards */
+      flex: 1 1 calc(25% - 20px); /* Sets a flexible width for cards for responsive design */
     }
     /* Responsive design */
     .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: flex; /* Enables flexbox layout for cards */
+      flex-wrap: wrap; /* Allows cards to wrap onto new lines */
+      height: auto; /* Lets container height adjust based on content */
+      justify-content: space-between; /* Distributes space evenly between cards */
     }
   </style>
 </head>
 <body>
 
+  <!-- Input section for entering and submitting a HAX site URL -->
   <div class="input-container">
     <label for="url-input">HAX Site URL:</label>  
-    <input type="text" id="url-input" placeholder="Enter HAX site URL">
-    <button id="analyze-button">Analyze</button>
+    <input type="text" id="url-input" placeholder="Enter HAX site URL"> <!-- Input box for URL -->
+    <button id="analyze-button">Analyze</button><!-- Button to trigger the analysis process -->
+
   </div>
 
+  <!-- Overview section to display general site information and statistics -->
   <div class="overview" id="overview">
     <p>Enter a HAX site URL and click "Analyze" to view site details and statistics here.</p>
   </div>
   
-
+<!-- Card container for displaying individual items retrieved from the analyzed site -->
   <div class="card-container" id="card-container">
-    <!-- Cards will be dynamically added here -->
+   
   </div>
 
+   <!-- JavaScript module for managing interactivity and functionality -->
   <script type= "module" src="main.js"></script>
-  <script type="module" src="https://cdn.hax.cloud/cdn/build/es6/node_modules/@haxtheweb/simple-icon/simple-icon.js"></script>
+  
 
 </body>
 </html>
