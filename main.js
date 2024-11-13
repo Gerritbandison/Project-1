@@ -7,7 +7,7 @@ const analyzeButton = document.getElementById('analyze-button');
 const overview = document.getElementById('overview');
 const cardContainer = document.getElementById('card-container');
 
-// Event listener for the Analyze button
+
 analyzeButton.addEventListener('click', () => {
   const url = urlInput.value.trim();
   
@@ -19,6 +19,13 @@ analyzeButton.addEventListener('click', () => {
   
   const fetchUrl = url.endsWith('site.json') ? url : `${url}/site.json`;
   fetchSiteData(fetchUrl);
+});
+
+// Event listener for the Enter key on the input field
+urlInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') { // 'Enter' is the modern way to check instead of keyCode
+    analyzeButton.click(); // Triggers the click event on the button
+  }
 });
 
 // Function to fetch site.json data and validate 
@@ -107,21 +114,17 @@ function renderCards(items) {
     const createdDate = item.metadata.created ? formatDate(item.metadata.created) : "N/A";
     
     // Combine BASEURL with location path to create full URL for links
-    const location = item.location ? `${BASE_URL}${item.location}` : '#';
-    const sourceLink = item.location ? location : '#';
-    
+    const sourceLink = item.slug ? `${BASE_URL}${item.slug}` : '#';
 
     // Check if there's an image in item.metadata.images--unsure about
-    const imageUrl = item.metadata.images && item.metadata.images.length > 0 ? item.metadata.images[0] : '';
-
+    const imageUrl = item.metadata.images ? `${BASE_URL}${item.metadata.images}` : '';
     // Populate the card with HTML, and the links for images and sites??
     card.innerHTML = `
-      ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="max-width: 100%; height: auto; margin-bottom: 10px;">` : ''}
+      ${imageUrl ? `<img src="${imageUrl}"  style="max-width: 100%; height: auto; margin-bottom: 10px;">` : ''}
       <h3>${title}</h3>
       <p>${description}</p>
       <p><strong>Created:</strong> ${createdDate}</p>
       <p><strong>Last Updated:</strong> ${lastUpdated}</p>
-      <a href="${location}" target="_blank" rel="noopener noreferrer">View Item</a>
       <a href="${sourceLink}" target="_blank" rel="noopener noreferrer">View Source</a>
     `;
 

@@ -31,17 +31,22 @@
     /* Card and overview styling */
     .overview, .card-container {
       width: 90%; /* Sets a width for responsiveness */
+      text-align: center; /*Aligns text to center */
       max-width: 1200px; /* Limits width on larger screens */
       height: auto; /* Allows height to adjust based on content */
       margin: 20px 0; /* Adds vertical spacing */
     }
     .card {
-      border: 1px solid #ddd; /* Adds a light border around each card */
+      border: 4px solid #000000; /* Adds a light border around each card */
       border-radius: 8px; /* Rounds the corners of each card */
       padding: 16px; /* Adds padding inside each card */
       height: auto; /* Allows card height to adjust based on content */
       margin: 10px; /* Adds spacing between cards */
       flex: 1 1 calc(25% - 20px); /* Sets a flexible width for cards for responsive design */
+    }
+    .card:hover {
+      background-color: #e0d4d4; /* Changes background color on hover */
+      
     }
     /* Responsive design */
     .card-container {
@@ -57,8 +62,9 @@
   <!-- Input section for entering and submitting a HAX site URL -->
   <div class="input-container">
     <label for="url-input">HAX Site URL:</label>  
-    <input type="text" id="url-input" placeholder="Enter HAX site URL"> <!-- Input box for URL -->
-    <button id="analyze-button">Analyze</button><!-- Button to trigger the analysis process -->
+    <input type="text" id="url-input" placeholder="Enter HAX site URL"> 
+    <!-- Input box for URL -->
+    <button id="analyze-button">Analyze </button><!-- Button to trigger the analysis process -->
 
   </div>
 
